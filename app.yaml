@@ -1,0 +1,38 @@
+runtime: go
+api_version: go1
+threadsafe: true
+
+default_expiration: "1d"
+
+handlers:
+# re-direct to index.html if no path is give
+- url: /
+  static_files: index.html
+  upload: index.html
+  expiration: "0d 5m"
+  secure: always
+
+# re-direct to index.html
+- url: /index.html(.*)
+  static_files: index.html
+  upload: index.html(.*)
+  expiration: "0d 5m"
+  secure: always
+
+# Service Go de favoris
+- url: /(\.well-known|api)/.* 
+  script: _go_app
+
+# access the static resources
+- url: /(.*\.(css|gif|png|jpg|jpeg|ico|js|htm|xml|txt|ttf|json|svg|woff|eot|xcf|webm|mp4))
+  static_files: \1
+  upload: (.*\.(css|gif|png|jpg|jpeg|ico|js|htm|xml|txt|ttf|json|svg|woff|eot|xcf|webm|mp4))
+
+- url: /(.*\.(html))
+  static_files: \1
+  upload: (.*\.(html))
+
+skip_files:
+- ^node_modules/*.*
+- ^\.git/*.*
+- ^\.tmp/*.*
