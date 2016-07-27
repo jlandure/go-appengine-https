@@ -19,8 +19,21 @@ Sandbox for Go handlers working with [Let's Encrypt](https://letsencrypt.org/) a
 - Use `gcloud-install.sh` to install gcloud tool
 - Specify your `<appname>` and `<version>` in the `gcloud-deploy.sh` 
 
-# Activate HTTPS
-
+# Activate HTTPS with Let's encrypt on AppEngine
+- Launch the following command using `docker`
+```
+docker run -it -p 443:443 -p 80:80 \
+  -v "$(pwd)/ssl-keys:/etc/letsencrypt" \
+  quay.io/letsencrypt/letsencrypt:latest \
+  -a manual certonly
+```
+- Go to `https.go` and change the challenge (L14)
+- Enter an email for urgent notices, agree the terms and enter the domain to secure.
+- Commit and upload the application with the new challenge.
+- Complete the docker command line.
+- Go to `/ssl-keys/live/<mydomain>/` and upload the files on [AppEngine settings for certificate](https://console.cloud.google.com/appengine/settings/certificates):
+ - fullchain.pem
+ - rsa.pem using the commande line `openssl rsa -in privkey.pem -out rsa.pem`
 
 # AppEngine static files configuration 
 - Static files are cached for 30 days except for `index.html` (5 minutes)
