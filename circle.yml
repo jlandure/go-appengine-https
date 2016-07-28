@@ -1,0 +1,15 @@
+machine:
+  environment:
+    APPNAME: my-app
+    VERSION: v1
+
+dependencies:
+  override:
+    - echo 'nan'
+
+deployment:
+  appengine:
+    branch: [master]
+    commands:
+      - ./gcloud-install.sh
+      - ./gcloud-deploy.sh

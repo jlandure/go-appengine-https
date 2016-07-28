@@ -38,3 +38,6 @@ docker run -it -p 443:443 -p 80:80 \
 # AppEngine static files configuration
 - Static files are cached for 30 days except for `index.html` (5 minutes)
 - We specify the file extensions for static file in order to avoid conflict with `golang` files
+
+#Circle CI configuration file
+See the `circle.yml` configuration file for an example. Don't forget to set $APPNAME and $VERSION in the env variables.
