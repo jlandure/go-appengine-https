@@ -17,7 +17,7 @@ Sandbox for Go handlers working with [Let's Encrypt](https://letsencrypt.org/) a
  - Add env variable `GAE_SERVICE_ACCOUNT` with `xxx@appspot.gserviceaccount.com`
  - Add env variable `GAE_KEY_FILE_CONTENT` with the content of your json file
 - Use `gcloud-install.sh` to install gcloud tool
-- Specify your `<appname>` and `<version>` in the `gcloud-deploy.sh`
+- Specify your `$APPNAME` and `$VERSION` in the script `gcloud-deploy.sh` or in your CI
 
 # Activate HTTPS with Let's encrypt on AppEngine
 - Launch the following command using `docker`
