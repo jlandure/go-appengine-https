@@ -5,7 +5,7 @@ Sandbox for Go handlers working with [Let's Encrypt](https://letsencrypt.org/) a
 - Get a starter project to create a static website working on HTTPS (via Let's Encrypt)
 - Use a free platform thanks to [Google AppEngine free quota](https://cloud.google.com/appengine/docs/quotas)
 - Share knowledge about AppEngine, a great PaaS
-- Get feedbacks from the community
+- Get feedback from the community
 - Help people playing with [Go(lang)](https://golang.org), the perfect programming language for cloud platform
 
 # How to create and deploy
@@ -28,9 +28,9 @@ docker run -it -p 443:443 -p 80:80 \
   -a manual certonly
 ```
 - Go to `https.go` and change the challenge (L14)
-- Enter an email for urgent notices, agree the terms and enter the domain to secure.
-- Commit and upload the application with the new challenge.
-- Complete the docker command line.
+- Enter an email for urgent notices, accept the terms and enter the domain to secure
+- Commit and upload the application with the new challenge
+- Complete the docker command line
 - Go to `/ssl-keys/live/<mydomain>/` and upload the files on [AppEngine settings for certificate](https://console.cloud.google.com/appengine/settings/certificates):
  - fullchain.pem
  - rsa.pem using the commande line `openssl rsa -in privkey.pem -out rsa.pem`
