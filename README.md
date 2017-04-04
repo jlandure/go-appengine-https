@@ -32,8 +32,8 @@ docker run -it -p 443:443 -p 80:80 \
 - Commit and upload the application with the new challenge
 - Complete the docker command line
 - Go to `/ssl-keys/live/<mydomain>/` and upload the files on [AppEngine settings for certificate](https://console.cloud.google.com/appengine/settings/certificates):
- - fullchain.pem
- - rsa.pem using the commande line `openssl rsa -in privkey.pem -out rsa.pem`
+  - fullchain.pem
+  - rsa.pem using the command line `openssl rsa -in privkey.pem -out rsa.pem`
 - To get the file with Docker, execute `docker start $(docker ps -ql)`
 - Then go inside with `docker exec -it $(docker ps -ql) bash` and `cd /etc/letsencrypt/live/<mydomain>`
 
