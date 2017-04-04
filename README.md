@@ -34,6 +34,8 @@ docker run -it -p 443:443 -p 80:80 \
 - Go to `/ssl-keys/live/<mydomain>/` and upload the files on [AppEngine settings for certificate](https://console.cloud.google.com/appengine/settings/certificates):
  - fullchain.pem
  - rsa.pem using the commande line `openssl rsa -in privkey.pem -out rsa.pem`
+- To get the file with Docker, execute `docker start $(docker ps -ql)`
+- Then go inside with `docker exec -it $(docker ps -ql) bash` and `cd /etc/letsencrypt/live/<mydomain>`
 
 # AppEngine static files configuration
 - Static files are cached for 30 days except for `index.html` (5 minutes)
