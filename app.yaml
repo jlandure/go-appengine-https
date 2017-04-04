@@ -19,7 +19,7 @@ handlers:
   expiration: "0d 5m"
   secure: always
 
-# Service Go de favoris
+# Service Go https
 - url: /(\.well-known|api)/.* 
   script: _go_app
 
