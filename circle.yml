@@ -5,7 +5,7 @@ machine:
 
 dependencies:
   override:
-    - echo 'nan'
+    - chmod +x gcloud-install.sh gcloud-deploy.sh
 
 deployment:
   appengine:
