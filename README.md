@@ -19,13 +19,13 @@ Sandbox for Go handlers working with [Let's Encrypt](https://letsencrypt.org/) a
 - Use `gcloud-install.sh` to install gcloud tool
 - Specify your `$APPNAME` and `$VERSION` in the script `gcloud-deploy.sh` or in your CI
 
-# Activate HTTPS with App Engine Managed Certs Alpha
+# Activate HTTPS with App Engine Managed Certs Beta
 
-If your domain is whitelisted (alpha feature), please use the following command to get a free and automatically renewed certificate:
+Please use the following command to get a free and automatically renewed certificate:
 ```
-gcloud alpha app domain-mappings update devfest2015.gdgnantes.com --no-certificate-id
-gcloud alpha app domain-mappings describe devfest2015.gdgnantes.com
-gcloud alpha app ssl-certificates describe XXXXXX
+gcloud beta app domain-mappings update devfest2015.gdgnantes.com --certificate-management='AUTOMATIC'
+gcloud beta app domain-mappings describe devfest2015.gdgnantes.com
+gcloud beta app ssl-certificates describe XXXXXX
 ```
 
 AppEngine will manage this certificate directly for you! _(like firebase)_
